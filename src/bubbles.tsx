@@ -48,6 +48,8 @@ export default function Bubbles({
   }, [quantity, blur, minSpeed, maxSpeed, minSize, maxSize, colors]);
 
   useEffect(() => {
+    if (bubbles.length <= 0) return;
+
     const canvas = canvasRef.current;
     if (!canvas) {
       return;
@@ -94,10 +96,10 @@ export default function Bubbles({
       requestAnimationFrame(animate);
     });
 
-    handleResize();
     function handleResize() {
       setScreenSize({ x: innerWidth, y: innerHeight });
     }
+    handleResize();
     addEventListener("resize", handleResize);
 
     return () => {
