@@ -1,7 +1,7 @@
 "use client";
 
 import { Bubble, ColorRGBA } from "./bubble";
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 
 export default function Bubbles({
   quantity = 5,
@@ -22,13 +22,13 @@ export default function Bubbles({
   colors?: ColorRGBA[];
   className?: string;
 }) {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const canvasRef = React.useRef<HTMLCanvasElement>(null);
 
-  const [hasStarted, setHasStarted] = useState(false);
-  const [screenSize, setScreenSize] = useState({ x: 0, y: 0 });
-  const [bubbles, setBubbles] = useState<Bubble[]>([]);
+  const [hasStarted, setHasStarted] = React.useState(false);
+  const [screenSize, setScreenSize] = React.useState({ x: 0, y: 0 });
+  const [bubbles, setBubbles] = React.useState<Bubble[]>([]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     let bubbles: Bubble[] = [];
     for (let i = 0; i < quantity; i++) {
       bubbles.push(
@@ -47,7 +47,7 @@ export default function Bubbles({
     setHasStarted(true);
   }, [quantity, blur, minSpeed, maxSpeed, minSize, maxSize, colors]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (bubbles.length <= 0) return;
 
     const canvas = canvasRef.current;
