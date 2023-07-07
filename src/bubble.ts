@@ -109,6 +109,7 @@ export class Bubble {
     if (this.colors && this.colors.length > 0) {
       let randIndex = Math.round(Math.random() * this.colors.length - 1);
 
+      // requires check with tsup conversion to js
       const color = this.colors[randIndex];
       if (color) return color;
       return { r: 0, g: 0, b: 0, a: 0 };
