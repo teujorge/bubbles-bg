@@ -23,5 +23,7 @@ jobs:
       - name: Create Release Pull Request or Publish
         id: changesets
         uses: changesets/action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
         with:
           publish: pnpm run build
