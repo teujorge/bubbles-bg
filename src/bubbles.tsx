@@ -113,7 +113,7 @@ export default function Bubbles({
       ref={canvasRef}
       width={screenSize.x}
       height={screenSize.y}
-      className={`-z-10 fixed top-0 left-0 transition-opacity duration-1000 ${className}`}
+      className={`-z-50 fixed top-0 left-0 transition-opacity duration-1000 ${className}`}
       style={{
         filter: `blur(${blur}px)`,
         opacity: hasStarted ? 1 : 0,
