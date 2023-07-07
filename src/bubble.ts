@@ -108,7 +108,10 @@ export class Bubble {
   randColor(): ColorRGBA {
     if (this.colors && this.colors.length > 0) {
       let randIndex = Math.round(Math.random() * this.colors.length - 1);
-      return this.colors[randIndex]!;
+
+      const color = this.colors[randIndex];
+      if (color) return color;
+      return { r: 0, g: 0, b: 0, a: 0 };
     }
 
     const minOpacity = 0.4;
